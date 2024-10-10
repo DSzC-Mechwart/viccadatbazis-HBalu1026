@@ -1,0 +1,54 @@
+﻿@page
+@model ViccAdatbazis.Pages.UjViccModel
+
+@{
+    ViewData["Title"] = "UjVicc";
+}
+
+<h1>UjVicc</h1>
+
+<h4>Vicc</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Vicc.Tartalom" class="control-label"></label>
+                <input asp-for="Vicc.Tartalom" class="form-control" />
+                <span asp-validation-for="Vicc.Tartalom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vicc.Feltolto" class="control-label"></label>
+                <input asp-for="Vicc.Feltolto" class="form-control" />
+                <span asp-validation-for="Vicc.Feltolto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vicc.Tetszik" class="control-label"></label>
+                <input asp-for="Vicc.Tetszik" class="form-control" />
+                <span asp-validation-for="Vicc.Tetszik" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vicc.NemTetszik" class="control-label"></label>
+                <input asp-for="Vicc.NemTetszik" class="form-control" />
+                <span asp-validation-for="Vicc.NemTetszik" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Vicc.Aktiv" /> @Html.DisplayNameFor(model => model.Vicc.Aktiv)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
