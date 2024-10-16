@@ -1,0 +1,61 @@
+﻿@page
+@model ViccAdatbazis.Pages.ViccikekListaModel
+
+@{
+    ViewData["Title"] = "ViccikekLista";
+}
+
+<h1>ViccikekLista</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Vicc[0].Tartalom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vicc[0].Feltolto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vicc[0].Tetszik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vicc[0].NemTetszik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vicc[0].Aktiv)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Vicc) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tartalom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Feltolto)
+            </td>
+            <td>
+                <span id="tetszikDb">@Html.DisplayFor(modelItem => item.Tetszik)</span>
+                <button onclick="lajkolas(@item.Id)">Tetszik</button>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NemTetszik)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aktiv)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
